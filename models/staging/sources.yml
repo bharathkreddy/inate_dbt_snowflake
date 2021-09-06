@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: FRFA
+    description: A clone of a PRFA database.
+    database: FRFA
+    tables:
+      - name: POSITIONS_DATA
+        description: Raw positions data.
+        columns:
+          - name: "Valuation Date"
+            description: Valuation date for the account mentioned.
+            tests:
+              - not_null
+          - name: "Account ID (FA)"
+            description: FA GIO account number.
+            tests:
+              - not_null           
+      - name: TRANSACTION_DATA
+        description: Raw transactions data.
+        columns:
+          - name: "Account ID (FA)"
+            description: FA GIO account number.
+            tests:
+              - not_null
+      - name: VALUATION_DATA
+        description: Raw Valuation data.
+        columns:
+          - name: "CLASS OF SHARES"
+            description: Class for shares for the account.
+            tests:
+              - not_null
