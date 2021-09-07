@@ -1,3 +1,3 @@
 
 SELECT *
-FROM {{ source('FRFA', 'POSITIONS_DATA') }}
+FROM {{ source('FRFA', 'RAW_POSITIONS_DATA') }}

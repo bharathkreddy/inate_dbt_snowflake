@@ -1,3 +1,5 @@
 
-SELECT * 
-FROM {{ source('FRFA', 'TRANSACTION_DATA') }}
+SELECT 
+*
+FROM {{ source('FRFA', 'RAW_TRANSACTIONS_DATA') }}
+

@@ -5,28 +5,40 @@ sources:
     description: A clone of a PRFA database.
     database: FRFA
     tables:
-      - name: POSITIONS_DATA
-        description: Raw positions data.
+      - name: RAW_POSITIONS_DATA
+        description: Raw positions data from PRFA database.
         columns:
-          - name: "Valuation Date"
+          - name: "Valuation_Date"
             description: Valuation date for the account mentioned.
             tests:
               - not_null
-          - name: "Account ID (FA)"
-            description: FA GIO account number.
-            tests:
-              - not_null           
-      - name: TRANSACTION_DATA
-        description: Raw transactions data.
-        columns:
-          - name: "Account ID (FA)"
+          - name: "Account_ID_FA"
             description: FA GIO account number.
             tests:
               - not_null
-      - name: VALUATION_DATA
-        description: Raw Valuation data.
+          - name: "FA_Asset_Group" 
+            description: Asset class for the asset.
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['S','P','UN','B','FT','MR','FE','CF','CL','CB','IV','MF','IT','GI','CU','CC','CT','FB','W','G','CV','CA','FS','R']   
+          - name: "Price_Code"
+            description: Price code determines how Market value for an asset is calculated.
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['S','B','X','I','D','F']  
+      - name: RAW_TRANSACTIONS_DATA
+        description: Raw transactions data from PRFA database.
         columns:
-          - name: "CLASS OF SHARES"
+          - name: "Account_ID_FA"
+            description: FA GIO account number.
+            tests:
+              - not_null
+      - name: RAW_VALUATIONS_DATA
+        description: Raw Valuation data from PRFA database.
+        columns:
+          - name: "Class_of_Shares"
             description: Class for shares for the account.
             tests:
               - not_null

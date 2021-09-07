@@ -1,4 +1,5 @@
 
 
-SELECT  *
-FROM {{ source('FRFA', 'VALUATION_DATA') }}
+SELECT  
+*
+FROM {{ source('FRFA', 'RAW_VALUATIONS_DATA') }}
